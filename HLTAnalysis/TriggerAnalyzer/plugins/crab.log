@@ -1,0 +1,57 @@
+DEBUG 2018-11-16 12:39:35,501: 	 Executing command: 'submit'
+DEBUG 2018-11-16 12:39:35,505: 	 Found CRAB cache file /afs/cern.ch/user/g/gkaratha/.crab3
+DEBUG 2018-11-16 12:39:35,531: 	 Checking credentials
+DEBUG 2018-11-16 12:39:35,560: 	 Found proxy file /tmp/x509up_u43882
+DEBUG 2018-11-16 12:39:35,560: 	 Getting proxy life time left
+DEBUG 2018-11-16 12:39:37,892: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u43882 -timeleft
+ output : 454911
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-16 12:39:39,637: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u43882 -actimeleft
+ output : 0
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-16 12:39:39,637: 	 Proxy valid for 00:00:00 hours
+DEBUG 2018-11-16 12:39:39,638: 	 Creating new proxy for 24:00 hours with VO group '' and VO role 'NULL'.
+DEBUG 2018-11-16 12:39:53,171: 	 Executing : 
+ command : voms-proxy-init -voms cms:/cms -valid 24:00 -rfc
+ output : None
+ error: None
+ retcode : 0
+DEBUG 2018-11-16 12:39:55,371: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u43882 -timeleft
+ output : 86396
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-16 12:39:57,057: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u43882 -actimeleft
+ output : 86395
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-16 12:39:58,785: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u43882 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-16 12:39:58,785: 	 Proxy created.
+ERROR 2018-11-16 12:39:58,786: 	 CRAB configuration file crabConfig_Ntuples.py not found.
+ERROR 2018-11-16 12:39:58,786: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 303, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 46, in loadConfig
+    raise ConfigurationException("CRAB configuration file %s not found." % (configname))
+ConfigurationException: CRAB configuration file crabConfig_Ntuples.py not found.
